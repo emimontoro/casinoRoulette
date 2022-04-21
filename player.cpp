@@ -69,19 +69,21 @@ void Player::generateBet(){
 
 void Player::updateBets(int result){
 	if (result){
-		cout<<name<<" won "<<bet;
-		bets->push_back(bet);
 		earnings += bet;
+		cout<<name<<" won "<<bet<<endl<<endl;
+		bets->push_back(bet);
+		
 	}
 	else{//cut the first and laste elem of the list (incase bets has more than one element)
 		earnings -= bet;
-		cout<<name<<" lost "<<bet;
+		cout<<name<<" lost "<<bet<<endl<<endl;
 		if (bets->size() == 1){
 			regenBets();
 		}
 		else{
 			bets->pop_front();
 			bets->pop_back();
+			cout<<"lost modified: top= "<<bets->front()<<", back=  "<<bets->back()<<endl<<endl;
 		}
 	}
 }

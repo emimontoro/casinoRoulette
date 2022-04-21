@@ -68,10 +68,10 @@ int main()
 {
     srand((unsigned)time(0));
 
-	Player *players =new Player(6); 
+	Player *players[6];// =new Player(6); 
 
 	for (int i = 0; i < 6; i++ ){
-		players[i] = Player(char('A'+i));//from A to F
+		players[i] = new Player(char('A'+i));//from A to F
 	}
 	//cout << players[5].getName() <<endl;
 
@@ -80,30 +80,31 @@ int main()
 	int result;
 
 
-
    	for (int i = 0; i<= 4; i++){
 		number = (rand()%37);//generate a number between 0 and 36
-     	cout <<"salio" <<number << "\n";
+     	cout <<"salio" <<number << endl;
 		for (int i = 0; i < 6; i++ ){
 			result = computeBet(number,char('A'+i));
-			cout << result<<endl;
+			cout<<"result: "<< result<<endl;
 
-			players[i].generateBet();
-			cout <<players[i].getName()<<" Betted"<<players[i].getBet()<<endl;
+			players[i]->generateBet();
+			cout <<players[i]->getName()<<" Betted: "<<players[i]->getBet()<<endl;
 
-			players[i].updateBets(result);// this gens seg fault
+			players[i]->updateBets(result);// this gens seg fault
 
 		}
+		cout << endl<<endl;
+
 		
    	}
 	
-	/* int earnings = 0;
-	for (int i = 0; i < 7; i++ ){
+	int earnings = 0;
+	for (int i = 0; i < 6; i++ ){
 			
-			earnings += players[i].getEarnings();
+			earnings += players[i]->getEarnings();
 			
-		} */
+		}
 	//cout << colors[30]<<endl;
-	//cout << earnings<<endl;
+	cout<<endl<<endl <<"global earnings: "<< earnings<<endl;
     return 0;
 }
