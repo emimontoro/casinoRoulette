@@ -68,43 +68,44 @@ int main()
 {
     srand((unsigned)time(0));
 
-	Player *players[6];// =new Player(6); 
+	Player *players[6];
 
 	for (int i = 0; i < 6; i++ ){
 		players[i] = new Player(char('A'+i));//from A to F
 	}
-	//cout << players[5].getName() <<endl;
+	
 
 	
     int number;
 	int result;
 
-
-   	for (int i = 0; i<= 4; i++){
+	cout<<endl<<"_________Starting Simulation_________"<<endl;
+   	for (int i = 0; i < 10000; i++){
 		number = (rand()%37);//generate a number between 0 and 36
-     	cout <<"salio" <<number << endl;
+		cout<<endl<<" _Spin number "<<i+1<<"_"<<endl;
+     	cout <<"<<Roulette result= " <<number <<">>"<< endl<<endl;
 		for (int i = 0; i < 6; i++ ){
 			result = computeBet(number,char('A'+i));
-			cout<<"result: "<< result<<endl;
 
 			players[i]->generateBet();
-			cout <<players[i]->getName()<<" Betted: "<<players[i]->getBet()<<endl;
+			cout <<"Player "<<players[i]->getName()<<" -> Betted: "<<players[i]->getBet()<<endl;
 
 			players[i]->updateBets(result);// this gens seg fault
 
 		}
-		cout << endl<<endl;
+		
 
 		
    	}
-	
+	cout<<endl<<"_________No more Spins_________"<<endl;
 	int earnings = 0;
+	cout<<endl<<endl <<"SUMMARY: "<<endl<<endl;
 	for (int i = 0; i < 6; i++ ){
-			
+			cout<<"Player "<<players[i]->getName()<<" BALANCE: "<< players[i]->getEarnings()<<endl;
 			earnings += players[i]->getEarnings();
 			
 		}
-	//cout << colors[30]<<endl;
-	cout<<endl<<endl <<"global earnings: "<< earnings<<endl;
+	
+	cout<<endl<<endl <<"GROUP BALANCE: "<< earnings<<endl;
     return 0;
 }
