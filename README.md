@@ -29,7 +29,7 @@
 ## To Run
 ``` ./main```
 
-### After you run the code a file named "roulette_play.txt" will be generated. 
-### This file contains the numbers from each of the 10,000 spins, a Summary from the earnings of each player and the total earnings of the 6 players simulating they played as a group.
+#### After you run the code a file named "roulette_play.txt" will be generated. 
+#### This file contains the numbers from each of the 10,000 spins, a Summary from the earnings of each player and the total earnings of the 6 players simulating they played as a group.
 
 
