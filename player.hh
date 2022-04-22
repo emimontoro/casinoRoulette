@@ -5,8 +5,9 @@
 
 using namespace std;
 
+//class for each player
 class Player{
-//private:
+private:
 	char name;
 	int earnings;
 	list<int> *bets;
@@ -14,19 +15,22 @@ class Player{
 
 
 public:
+	//Constructor
 	Player(char theName);
-
+	//Destructor
 	~Player();
 
+
+	//Get from class
 	char getName();
 
 	int getBet();
 
 	int getEarnings();
 
-	void checkBets();
 
-	int lenToZero();
+	//Bets functions
+	void checkBets();
 
 	void createBets();
 
@@ -36,7 +40,6 @@ public:
 
 	void updateBets(int result);
 
-	int endResult(int* players);
 };
 
 

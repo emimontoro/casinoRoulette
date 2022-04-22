@@ -7,7 +7,7 @@ using namespace std;
 #include "player.hh"
 
 
-
+//create the player
 Player::Player(char theName){
 	name = theName;
 	earnings = 0;
@@ -42,7 +42,7 @@ void Player::regenBets(){
 	createBets();
 }
 
-void Player::checkBets(){//we cant return a new array without losing bets
+void Player::checkBets(){//checks if my list will be able to throw out a bet according to the exercise
 
 	if (bets->size() == 0){//first to check so we don't get error accesing an element in bets
 		regenBets();
@@ -57,7 +57,7 @@ void Player::checkBets(){//we cant return a new array without losing bets
 
 }
 
-void Player::generateBet(){
+void Player::generateBet(){//get the next bet according to the list size and the algorithm given
 	checkBets();
 	if (sizeof(bets) > 1){
 		bet = bets->front() + bets->back(); //in case i win i have to add to my bet list what i last betted
@@ -67,7 +67,7 @@ void Player::generateBet(){
 	}
 }
 
-void Player::updateBets(int result){
+void Player::updateBets(int result){//keep a track of your earnings depending of the bet and result of the roulette
 	if (result){
 		earnings += bet;
 		cout<<"Player "<<name<<" ***WON***"<<endl<<endl;
@@ -83,7 +83,6 @@ void Player::updateBets(int result){
 		else{
 			bets->pop_front();
 			bets->pop_back();
-			//cout<<"lost modified: top= "<<bets->front()<<", back=  "<<bets->back()<<endl<<endl;
 		}
 	}
 }

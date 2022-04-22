@@ -10,4 +10,4 @@ main.o: main.cpp
 player.o: player.cpp 
 	$(CC) $(CFLAGS) -c player.cpp
 
-clean: rm -f *.o
+
