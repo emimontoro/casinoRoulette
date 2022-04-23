@@ -2,17 +2,14 @@
 #include <ctime>
 #include <iostream>
 
-using namespace std;
-
 #include "player.hh"
-
 
 //create the player
 Player::Player(char theName){
 	name = theName;
 	earnings = 0;
 	bet = 0;
-	bets = new list<int>();
+	bets = new std::list<int>();
 	createBets();
 }
 
@@ -70,13 +67,13 @@ void Player::generateBet(){//get the next bet according to the list size and the
 void Player::updateBets(int result){//keep a track of your earnings depending of the bet and result of the roulette
 	if (result){
 		earnings += bet;
-		cout<<"Player "<<name<<" ***WON***"<<endl<<endl;
+		std::cout<<"Player "<<name<<" ***WON***"<<std::endl<<std::endl;
 		bets->push_back(bet);
 		
 	}
 	else{//cut the first and laste elem of the list (incase bets has more than one element)
 		earnings -= bet;
-		cout<<"Player "<<name<<" ***LOST***"<<endl<<endl;
+		std::cout<<"Player "<<name<<" ***LOST***"<<std::endl<<std::endl;
 		if (bets->size() == 1){
 			regenBets();
 		}

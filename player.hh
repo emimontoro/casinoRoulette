@@ -3,14 +3,14 @@
 #define PLAYERDB_PLAYER_HH
 #include <list>
 
-using namespace std;
+
 
 //class for each player
 class Player{
 private:
 	char name;
 	int earnings;
-	list<int> *bets;
+	std::list<int> *bets;
 	int bet;
 
 
